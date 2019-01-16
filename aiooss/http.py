@@ -26,6 +26,7 @@ class Session(object):
                                                params=req.params,
                                                headers=req.headers,
                                                timeout=timeout)
+        resp.request_id = resp.headers.get('x-oss-request-id')
         return resp
 
     async def __aenter__(self):
